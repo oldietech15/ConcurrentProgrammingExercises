@@ -14,15 +14,20 @@ import java.util.List;
  */
 public class ConcurrentProgrammingExercises {
 
-    private class Pair<K,T>{
+    private static class Pair<K,T>{
         private K obj1;
         private T obj2;
+        
+        public Pair(K obj1, T obj2){
+            setK(obj1);
+            setT(obj2);
+        }
         
         private void setK ( K obj1 ){
             this.obj1 = obj1;
         }
         
-        private K getK (){
+        public K getK (){
             return this.obj1;
         }
         
@@ -30,7 +35,7 @@ public class ConcurrentProgrammingExercises {
             this.obj2 = obj2;
         }
         
-        private T getT (){
+        public T getT (){
             return this.obj2;
         }
     }
@@ -39,9 +44,48 @@ public class ConcurrentProgrammingExercises {
      */
     public static void main(String[] args) {
         
-        List<Pair<String,Integer>> l;
-        l = new LinkedList<>();
+        Pair<String,Integer> p1 = new Pair<> ("Hello",1);
+        Pair<String,Integer> p2 = new Pair<> (" world",2);
+        Pair<String,Integer> p3 = new Pair<> ("!",3);
+        Pair<String,Integer> p4 = new Pair<> ("!",6);
         
+        List<Pair<String,Integer>> l = new LinkedList<>();
+        
+        l.add( p1 );
+        l.add( p2 );
+        l.add( p3 );
+        l.add( p4 );
+        
+        readList( l );
+        printSumOfList( l );
+        printSumOfUniqueString(l, 2);
+    }
+    
+    private static void readList(List<Pair<String,Integer>> l){
+        String s = "";
+        for(int i = 0; i < l.size(); i++){
+            s = s + l.get(i).getK();
+        }
+        System.out.println(s);
+    }
+    
+    private static void printSumOfList(List<Pair<String,Integer>> l){
+        int sum = 0;
+        for(int i = 0; i < l.size(); i++){
+            sum = sum + l.get(i).getT();
+        }
+        System.out.println(sum);
+    }
+    
+    private static void printSumOfUniqueString(List<Pair<String,Integer>> l, int li){
+        int sum = 0;
+        String s = l.get(li).getK();
+        for(int i = 0; i < l.size(); i++){
+            if(l.get(i).getK() == s){
+                sum = sum + l.get(i).getT();
+            }
+        }
+        System.out.println(sum);
     }
     
 }
