@@ -81,7 +81,7 @@ public class ConcurrentProgrammingExercises {
         int sum = 0;
         String s = l.get(li).getK();
         for(int i = 0; i < l.size(); i++){
-            if(l.get(i).getK() == s){
+            if(l.get(i).getK().equals(s)){
                 sum = sum + l.get(i).getT();
             }
         }
