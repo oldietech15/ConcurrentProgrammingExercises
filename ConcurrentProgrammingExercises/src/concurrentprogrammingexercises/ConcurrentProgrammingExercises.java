@@ -42,7 +42,7 @@ public class ConcurrentProgrammingExercises {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main() {
         
         Pair<String,Integer> p1 = new Pair<> ("Hello",1);
         Pair<String,Integer> p2 = new Pair<> (" world",2);
