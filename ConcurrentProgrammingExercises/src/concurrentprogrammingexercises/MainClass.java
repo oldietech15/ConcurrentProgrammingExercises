@@ -11,13 +11,13 @@ package concurrentprogrammingexercises;
  */
 public class MainClass {
     
-    public static void main(String[] args){
+    public static void main(){
 //        ConcurrentProgrammingExercises.main();
 //        ConcurrentProgrammingExercises2Counter.main();
 //       Cities.main();
 //        System.out.println(ImmutableInteger.getI());
 //        TicTacToe.main();
-        ProducerConsumer.main();
+  //      ProducerConsumer.main();
     }
     
 }
